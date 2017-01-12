@@ -197,11 +197,3 @@ CQAPI(const char *) CQ_getAppDirectory(int32_t AuthCode);
 * errorinfo为错误信息
 */
 CQAPI(int32_t) CQ_setFatal(int32_t AuthCode, const char *errorinfo);
-
-/*
-* 接收语音
-* Auth=30 接收消息中的语音(record),返回保存在 \data\record\ 目录下的文件名
-* Filename为收到消息中的语音文件名(file)
-* RequiredFormat为应用所需的语音文件格式，目前支持 mp3,amr,wma,m4a,spx,ogg,wav,flac
-*/
-CQAPI(const char *) CQ_getRecord(int32_t AuthCode, const char *Filename, const char *RequiredFormat);
