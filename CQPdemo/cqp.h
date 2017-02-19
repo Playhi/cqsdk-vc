@@ -197,3 +197,23 @@ CQAPI(const char *) CQ_getAppDirectory(int32_t AuthCode);
 * errorinfo为错误信息
 */
 CQAPI(int32_t) CQ_setFatal(int32_t AuthCode, const char *errorinfo);
+
+/*
+* 发送1~10个赞，Auth=110 发送手机赞
+* QQID为QQ号
+*/
+void CQ_sendLikeV2(int32_t AuthCode, int64_t QQID, int32_t times) {
+	HINSTANCE hDllInst = LoadLibrary("CQP.dll");
+	if (hDllInst) {
+		typedef DWORD(WINAPI *FUNC)(int32_t, int64_t, int32_t);
+		FUNC CQ_sendLikeV2 = NULL;
+		CQ_sendLikeV2 = (FUNC)GetProcAddress(hDllInst, "CQ_sendLikeV2");
+		if (CQ_sendLikeV2)	{
+			CQ_sendLikeV2(AuthCode, QQID, times);
+		}
+		FreeLibrary(hDllInst);
+	}
+	else {
+		CQ_addLog(AuthCode, CQLOG_ERROR, "ERROR", "DLL调用失败");
+	}
+}
