@@ -4,6 +4,7 @@
 * Written by Coxxs & Thanks for the help of orzFly
 * Modified by Playhi
 */
+
 #pragma once
 
 #define CQAPIVER 9
