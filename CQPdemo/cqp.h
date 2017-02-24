@@ -199,21 +199,45 @@ CQAPI(const char *) CQ_getAppDirectory(int32_t AuthCode);
 CQAPI(int32_t) CQ_setFatal(int32_t AuthCode, const char *errorinfo);
 
 /*
+* 接收语音
+* Auth=30 接收消息中的语音(record),返回保存在 \data\record\ 目录下的文件名
+* Filename为收到消息中的语音文件名(file)
+* RequiredFormat为应用所需的语音文件格式，目前支持 mp3,amr,wma,m4a,spx,ogg,wav,flac
+*/
+const char * CQ_getRecord(int32_t AuthCode, const char *Filename, const char *RequiredFormat) {
+	const char * returnData;
+	HINSTANCE hDllInst = LoadLibrary("CQP.dll");
+	if (hDllInst) {
+		typedef const char *(WINAPI *FUNC)(int32_t, const char *, const char *);
+		FUNC CQ_getRecord = NULL;
+		CQ_getRecord = (FUNC)GetProcAddress(hDllInst, "CQ_getRecord");
+		if (CQ_getRecord) {
+			returnData = CQ_getRecord(AuthCode, Filename, RequiredFormat);
+		}
+		FreeLibrary(hDllInst);
+	} else {
+		CQ_addLog(AuthCode, CQLOG_ERROR, "ERROR", "DLL调用失败");
+	}
+	return returnData;
+};
+
+/*
 * 发送1~10个赞，Auth=110 发送手机赞
 * QQID为QQ号
 */
-void CQ_sendLikeV2(int32_t AuthCode, int64_t QQID, int32_t times) {
+int32_t CQ_sendLikeV2(int32_t AuthCode, int64_t QQID, int32_t times) {
+	int32_t returnData;
 	HINSTANCE hDllInst = LoadLibrary("CQP.dll");
 	if (hDllInst) {
-		typedef DWORD(WINAPI *FUNC)(int32_t, int64_t, int32_t);
+		typedef int32_t(WINAPI *FUNC)(int32_t, int64_t, int32_t);
 		FUNC CQ_sendLikeV2 = NULL;
 		CQ_sendLikeV2 = (FUNC)GetProcAddress(hDllInst, "CQ_sendLikeV2");
-		if (CQ_sendLikeV2)	{
-			CQ_sendLikeV2(AuthCode, QQID, times);
+		if (CQ_sendLikeV2) {
+			returnData = CQ_sendLikeV2(AuthCode, QQID, times);
 		}
 		FreeLibrary(hDllInst);
-	}
-	else {
+	} else {
 		CQ_addLog(AuthCode, CQLOG_ERROR, "ERROR", "DLL调用失败");
 	}
+	return returnData;
 }
