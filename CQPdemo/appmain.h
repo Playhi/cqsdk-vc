@@ -1,2 +1,2 @@
-#define CQAPPID "com.example.democ" //ÇëÐÞ¸ÄAppID£¬¹æÔò¼û http://d.cqp.me/Pro/¿ª·¢/»ù´¡ÐÅÏ¢
+#define CQAPPID "com.example.democ" //è¯·ä¿®æ”¹AppIDï¼Œè§„åˆ™è§ http://d.cqp.me/Pro/å¼€å‘/åŸºç¡€ä¿¡æ¯
 #define CQAPPINFO CQAPIVERTEXT "," CQAPPID
