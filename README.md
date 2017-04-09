@@ -16,9 +16,9 @@
 
 官方网站
 --------
-* 主站：https://cqp.cc
+* 酷Q主站：https://cqp.cc
 
-* 文库：https://d.cqp.me
+* 酷Q文库：https://d.cqp.me
 
 注意
 --------
