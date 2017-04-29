@@ -50,4 +50,6 @@
 
 * Compared with the offical CoolQSDK,the branch [Playhi](https://github.com/Playhi/cqsdk-vc) added more commands(such as `CQ_getRecord`,`CQ_sendLikeV2`),and more annotations,etc.<br>
 
-* Some parts of the modified contents have not been completely tested,welcome you to use,suggest,modify,optimize and doing more to improve the SDK.
+* Some parts of the modified contents have not been completely tested.<br>
+
+* Welcome you to use,suggest,modify,optimize and do more to improve the SDK.
