@@ -19,191 +19,191 @@
 
 typedef int32_t CQBOOL;
 
-#define EVENT_IGNORE 0        //äº‹ä»¶_å¿½ç•¥
-#define EVENT_BLOCK 1         //äº‹ä»¶_æ‹¦æˆª
+#define EVENT_IGNORE 0        //ÊÂ¼ş_ºöÂÔ
+#define EVENT_BLOCK 1         //ÊÂ¼ş_À¹½Ø
 
-#define REQUEST_ALLOW 1       //è¯·æ±‚_é€šè¿‡
-#define REQUEST_DENY 2        //è¯·æ±‚_æ‹’ç»
+#define REQUEST_ALLOW 1       //ÇëÇó_Í¨¹ı
+#define REQUEST_DENY 2        //ÇëÇó_¾Ü¾ø
 
-#define REQUEST_GROUPADD 1    //è¯·æ±‚_ç¾¤æ·»åŠ 
-#define REQUEST_GROUPINVITE 2 //è¯·æ±‚_ç¾¤é‚€è¯·
+#define REQUEST_GROUPADD 1    //ÇëÇó_ÈºÌí¼Ó
+#define REQUEST_GROUPINVITE 2 //ÇëÇó_ÈºÑûÇë
 
-#define CQLOG_DEBUG 0           //è°ƒè¯• ç°è‰²
-#define CQLOG_INFO 10           //ä¿¡æ¯ é»‘è‰²
-#define CQLOG_INFOSUCCESS 11    //ä¿¡æ¯(æˆåŠŸ) ç´«è‰²
-#define CQLOG_INFORECV 12       //ä¿¡æ¯(æ¥æ”¶) è“è‰²
-#define CQLOG_INFOSEND 13       //ä¿¡æ¯(å‘é€) ç»¿è‰²
-#define CQLOG_WARNING 20        //è­¦å‘Š æ©™è‰²
-#define CQLOG_ERROR 30          //é”™è¯¯ çº¢è‰²
-#define CQLOG_FATAL 40          //è‡´å‘½é”™è¯¯ æ·±çº¢
+#define CQLOG_DEBUG 0           //µ÷ÊÔ »ÒÉ«
+#define CQLOG_INFO 10           //ĞÅÏ¢ ºÚÉ«
+#define CQLOG_INFOSUCCESS 11    //ĞÅÏ¢(³É¹¦) ×ÏÉ«
+#define CQLOG_INFORECV 12       //ĞÅÏ¢(½ÓÊÕ) À¶É«
+#define CQLOG_INFOSEND 13       //ĞÅÏ¢(·¢ËÍ) ÂÌÉ«
+#define CQLOG_WARNING 20        //¾¯¸æ ³ÈÉ«
+#define CQLOG_ERROR 30          //´íÎó ºìÉ«
+#define CQLOG_FATAL 40          //ÖÂÃü´íÎó Éîºì
 
 
 /*
-* å‘é€ç§èŠæ¶ˆæ¯ï¼ŒAuth=106
-* QQIDä¸ºç›®æ ‡QQå·ï¼Œmsgä¸ºæ¶ˆæ¯å†…å®¹
+* ·¢ËÍË½ÁÄÏûÏ¢£¬Auth=106
+* QQIDÎªÄ¿±êQQºÅ£¬msgÎªÏûÏ¢ÄÚÈİ
 */
 CQAPI(int32_t) CQ_sendPrivateMsg(int32_t AuthCode, int64_t QQID, const char *msg);
 
 /*
-* å‘é€ç¾¤æ¶ˆæ¯ï¼ŒAuth=101
-* groupidä¸ºç¾¤å·ï¼Œmsgä¸ºæ¶ˆæ¯å†…å®¹
+* ·¢ËÍÈºÏûÏ¢£¬Auth=101
+* groupidÎªÈººÅ£¬msgÎªÏûÏ¢ÄÚÈİ
 */
 CQAPI(int32_t) CQ_sendGroupMsg(int32_t AuthCode, int64_t groupid, const char *msg);
 
 /*
-* å‘é€è®¨è®ºç»„æ¶ˆæ¯ï¼ŒAuth=103
-* discussidä¸ºè®¨è®ºç»„å·ï¼Œmsgä¸ºæ¶ˆæ¯å†…å®¹
+* ·¢ËÍÌÖÂÛ×éÏûÏ¢£¬Auth=103
+* discussidÎªÌÖÂÛ×éºÅ£¬msgÎªÏûÏ¢ÄÚÈİ
 */
 CQAPI(int32_t) CQ_sendDiscussMsg(int32_t AuthCode, int64_t discussid, const char *msg);
 
 /*
-* å‘é€1ä¸ªèµï¼ŒAuth=110 å‘é€æ‰‹æœºèµ
-* QQIDä¸ºQQå·
+* ·¢ËÍ1¸öÔŞ£¬Auth=110 ·¢ËÍÊÖ»úÔŞ
+* QQIDÎªQQºÅ
 */
 CQAPI(int32_t) CQ_sendLike(int32_t AuthCode, int64_t QQID);
 
 /*
-* å‘é€1~10ä¸ªèµï¼ŒAuth=110 å‘é€æ‰‹æœºèµ
-* QQIDä¸ºQQå·
+* ·¢ËÍ1~10¸öÔŞ£¬Auth=110 ·¢ËÍÊÖ»úÔŞ
+* QQIDÎªQQºÅ
 */
 //CQAPI(int32_t) CQ_sendLikeV2(int32_t AuthCode, int64_t QQID, int32_t times);
 
 /*
-* ç½®ç¾¤å‘˜ç§»é™¤ï¼ŒAuth=120
-* groupidä¸ºç›®æ ‡ç¾¤ï¼ŒQQIDä¸ºQQå·ï¼Œrejectaddrequest å¦‚æœä¸ºçœŸï¼Œåˆ™â€œä¸å†æ¥æ”¶æ­¤äººåŠ ç¾¤ç”³è¯·â€ï¼Œè¯·æ…ç”¨ã€‚ç•™ç©ºä¸ºå‡
+* ÖÃÈºÔ±ÒÆ³ı£¬Auth=120
+* groupidÎªÄ¿±êÈº£¬QQIDÎªQQºÅ£¬rejectaddrequest Èç¹ûÎªÕæ£¬Ôò¡°²»ÔÙ½ÓÊÕ´ËÈË¼ÓÈºÉêÇë¡±£¬ÇëÉ÷ÓÃ¡£Áô¿ÕÎª¼Ù
 */
 CQAPI(int32_t) CQ_setGroupKick(int32_t AuthCode, int64_t groupid, int64_t QQID, CQBOOL rejectaddrequest);
 
 /*
-* ç½®ç¾¤å‘˜ç¦è¨€ï¼ŒAuth=121
-* groupidä¸ºç›®æ ‡ç¾¤ï¼ŒQQIDä¸ºQQå·ï¼Œduration ç¦è¨€çš„æ—¶é—´ï¼Œå•ä½ä¸ºç§’ã€‚å¦‚æœè¦è§£ç¦ï¼Œè¿™é‡Œå¡«å†™0
+* ÖÃÈºÔ±½ûÑÔ£¬Auth=121
+* groupidÎªÄ¿±êÈº£¬QQIDÎªQQºÅ£¬duration ½ûÑÔµÄÊ±¼ä£¬µ¥Î»ÎªÃë¡£Èç¹ûÒª½â½û£¬ÕâÀïÌîĞ´0
 */
 CQAPI(int32_t) CQ_setGroupBan(int32_t AuthCode, int64_t groupid, int64_t QQID, int64_t duration);
 
 /*
-* ç½®ç¾¤ç®¡ç†å‘˜ï¼ŒAuth=122
-* groupidä¸ºç›®æ ‡ç¾¤ï¼ŒQQIDä¸ºQQå·ï¼Œsetadmin çœŸ/è®¾ç½®ç®¡ç†å‘˜ å‡/å–æ¶ˆç®¡ç†å‘˜
+* ÖÃÈº¹ÜÀíÔ±£¬Auth=122
+* groupidÎªÄ¿±êÈº£¬QQIDÎªQQºÅ£¬setadmin Õæ/ÉèÖÃ¹ÜÀíÔ± ¼Ù/È¡Ïû¹ÜÀíÔ±
 */
 CQAPI(int32_t) CQ_setGroupAdmin(int32_t AuthCode, int64_t groupid, int64_t QQID, CQBOOL setadmin);
 
 /*
-* ç½®å…¨ç¾¤ç¦è¨€ï¼ŒAuth=123
-* groupidä¸ºç›®æ ‡ç¾¤ï¼Œenableban çœŸ/å¼€å¯ å‡/å…³é—­
+* ÖÃÈ«Èº½ûÑÔ£¬Auth=123
+* groupidÎªÄ¿±êÈº£¬enableban Õæ/¿ªÆô ¼Ù/¹Ø±Õ
 */
 CQAPI(int32_t) CQ_setGroupWholeBan(int32_t AuthCode, int64_t groupid, CQBOOL enableban);
 
 /*
-* ç½®åŒ¿åç¾¤å‘˜ç¦è¨€ï¼ŒAuth=124
-* groupidä¸ºç›®æ ‡ç¾¤ï¼Œanomymousä¸ºç¾¤æ¶ˆæ¯äº‹ä»¶æ”¶åˆ°çš„â€œåŒ¿åâ€å‚æ•°
-* durationä¸ºç¦è¨€çš„æ—¶é—´ï¼Œå•ä½ä¸ºç§’ã€‚ä¸æ”¯æŒè§£ç¦
+* ÖÃÄäÃûÈºÔ±½ûÑÔ£¬Auth=124
+* groupidÎªÄ¿±êÈº£¬anomymousÎªÈºÏûÏ¢ÊÂ¼şÊÕµ½µÄ¡°ÄäÃû¡±²ÎÊı
+* durationÎª½ûÑÔµÄÊ±¼ä£¬µ¥Î»ÎªÃë¡£²»Ö§³Ö½â½û
 */
 CQAPI(int32_t) CQ_setGroupAnonymousBan(int32_t AuthCode, int64_t groupid, const char *anomymous, int64_t duration);
 
 /*
-* ç½®ç¾¤åŒ¿åè®¾ç½®ï¼ŒAuth=125
-* groupidä¸ºç›®æ ‡ç¾¤ï¼Œenableanomymousä¸ºæ˜¯å¦å¼€å¯åŒ¿å
+* ÖÃÈºÄäÃûÉèÖÃ£¬Auth=125
+* groupidÎªÄ¿±êÈº£¬enableanomymousÎªÊÇ·ñ¿ªÆôÄäÃû
 */
 CQAPI(int32_t) CQ_setGroupAnonymous(int32_t AuthCode, int64_t groupid, CQBOOL enableanomymous);
 
 /*
-* ç½®ç¾¤æˆå‘˜åç‰‡ï¼ŒAuth=126
-* groupidä¸ºç›®æ ‡ç¾¤ï¼ŒQQIDä¸ºç›®æ ‡QQï¼Œnewcardä¸ºæ–°åç‰‡(æ˜µç§°)
+* ÖÃÈº³ÉÔ±ÃûÆ¬£¬Auth=126
+* groupidÎªÄ¿±êÈº£¬QQIDÎªÄ¿±êQQ£¬newcardÎªĞÂÃûÆ¬(êÇ³Æ)
 */
 CQAPI(int32_t) CQ_setGroupCard(int32_t AuthCode, int64_t groupid, int64_t QQID, const char *newcard);
 
 /*
-* ç½®ç¾¤é€€å‡ºï¼ŒAuth=127 æ…ç”¨,æ­¤æ¥å£éœ€è¦ä¸¥æ ¼æˆæƒ
-* groupidä¸ºç›®æ ‡ç¾¤
-* isdismissä¸ºæ˜¯å¦è§£æ•£ï¼ŒçœŸ/è§£æ•£æœ¬ç¾¤(ç¾¤ä¸») å‡/é€€å‡ºæœ¬ç¾¤(ç®¡ç†ã€ç¾¤æˆå‘˜)
+* ÖÃÈºÍË³ö£¬Auth=127 É÷ÓÃ,´Ë½Ó¿ÚĞèÒªÑÏ¸ñÊÚÈ¨
+* groupidÎªÄ¿±êÈº
+* isdismissÎªÊÇ·ñ½âÉ¢£¬Õæ/½âÉ¢±¾Èº(ÈºÖ÷) ¼Ù/ÍË³ö±¾Èº(¹ÜÀí¡¢Èº³ÉÔ±)
 */
 CQAPI(int32_t) CQ_setGroupLeave(int32_t AuthCode, int64_t groupid, CQBOOL isdismiss);
 
 /*
-* ç½®ç¾¤æˆå‘˜ä¸“å±å¤´è¡”ï¼ŒAuth=128 éœ€ç¾¤ä¸»æƒé™
-* groupidä¸ºç›®æ ‡ç¾¤ï¼ŒQQIDä¸ºç›®æ ‡QQï¼Œnewspecialtitleä¸ºå¤´è¡”ï¼ˆå¦‚æœè¦åˆ é™¤ï¼Œè¿™é‡Œå¡«ç©ºï¼‰
-* durationä¸ºä¸“å±å¤´è¡”æœ‰æ•ˆæœŸï¼Œå•ä½ä¸ºç§’ã€‚å¦‚æœæ°¸ä¹…æœ‰æ•ˆï¼Œè¿™é‡Œå¡«å†™-1
+* ÖÃÈº³ÉÔ±×¨ÊôÍ·ÏÎ£¬Auth=128 ĞèÈºÖ÷È¨ÏŞ
+* groupidÎªÄ¿±êÈº£¬QQIDÎªÄ¿±êQQ£¬newspecialtitleÎªÍ·ÏÎ£¨Èç¹ûÒªÉ¾³ı£¬ÕâÀïÌî¿Õ£©
+* durationÎª×¨ÊôÍ·ÏÎÓĞĞ§ÆÚ£¬µ¥Î»ÎªÃë¡£Èç¹ûÓÀ¾ÃÓĞĞ§£¬ÕâÀïÌîĞ´-1
 */
 CQAPI(int32_t) CQ_setGroupSpecialTitle(int32_t AuthCode, int64_t groupid, int64_t QQID, const char *newspecialtitle, int64_t duration);
 
 /*
-* ç½®è®¨è®ºç»„é€€å‡ºï¼ŒAuth=140
-* discussidä¸ºç›®æ ‡è®¨è®ºç»„å·
+* ÖÃÌÖÂÛ×éÍË³ö£¬Auth=140
+* discussidÎªÄ¿±êÌÖÂÛ×éºÅ
 */
 CQAPI(int32_t) CQ_setDiscussLeave(int32_t AuthCode, int64_t discussid);
 
 /*
-* ç½®å¥½å‹æ·»åŠ è¯·æ±‚ï¼ŒAuth=150
-* responseflagä¸ºè¯·æ±‚äº‹ä»¶æ”¶åˆ°çš„â€œåé¦ˆæ ‡è¯†â€å‚æ•°
-* responseoperationä¸º REQUEST_ALLOW æˆ– REQUEST_DENY
-* remarkä¸ºæ·»åŠ åçš„å¥½å‹å¤‡æ³¨
+* ÖÃºÃÓÑÌí¼ÓÇëÇó£¬Auth=150
+* responseflagÎªÇëÇóÊÂ¼şÊÕµ½µÄ¡°·´À¡±êÊ¶¡±²ÎÊı
+* responseoperationÎª REQUEST_ALLOW »ò REQUEST_DENY
+* remarkÎªÌí¼ÓºóµÄºÃÓÑ±¸×¢
 */
 CQAPI(int32_t) CQ_setFriendAddRequest(int32_t AuthCode, const char *responseflag, int32_t responseoperation, const char *remark);
 
 /*
-* ç½®ç¾¤æ·»åŠ è¯·æ±‚ï¼ŒAuth=151
-* responseflagä¸ºè¯·æ±‚äº‹ä»¶æ”¶åˆ°çš„â€œåé¦ˆæ ‡è¯†â€å‚æ•°
-* requesttypeæ ¹æ®è¯·æ±‚äº‹ä»¶çš„å­ç±»å‹åŒºåˆ† REQUEST_GROUPADD æˆ– REQUEST_GROUPINVITE
-* responseoperationä¸º REQUEST_ALLOW æˆ– REQUEST_DENY
-* reasonä¸ºæ“ä½œç†ç”±ï¼Œä»… REQUEST_GROUPADD ä¸” REQUEST_DENY æ—¶å¯ç”¨
+* ÖÃÈºÌí¼ÓÇëÇó£¬Auth=151
+* responseflagÎªÇëÇóÊÂ¼şÊÕµ½µÄ¡°·´À¡±êÊ¶¡±²ÎÊı
+* requesttype¸ù¾İÇëÇóÊÂ¼şµÄ×ÓÀàĞÍÇø·Ö REQUEST_GROUPADD »ò REQUEST_GROUPINVITE
+* responseoperationÎª REQUEST_ALLOW »ò REQUEST_DENY
+* reasonÎª²Ù×÷ÀíÓÉ£¬½ö REQUEST_GROUPADD ÇÒ REQUEST_DENY Ê±¿ÉÓÃ
 */
 CQAPI(int32_t) CQ_setGroupAddRequestV2(int32_t AuthCode, const char *responseflag, int32_t requesttype, int32_t responseoperation, const char *reason);
 
 /*
-* å–ç¾¤æˆå‘˜ä¿¡æ¯ï¼ŒAuth=130
-* groupidä¸ºç›®æ ‡QQæ‰€åœ¨ç¾¤ï¼ŒQQIDä¸ºç›®æ ‡QQå·ï¼Œnocacheä¸ºæ˜¯å¦ä¸ä½¿ç”¨ç¼“å­˜
+* È¡Èº³ÉÔ±ĞÅÏ¢£¬Auth=130
+* groupidÎªÄ¿±êQQËùÔÚÈº£¬QQIDÎªÄ¿±êQQºÅ£¬nocacheÎªÊÇ·ñ²»Ê¹ÓÃ»º´æ
 */
 CQAPI(const char *) CQ_getGroupMemberInfoV2(int32_t AuthCode, int64_t groupid, int64_t QQID, CQBOOL nocache);
 
 /*
-* å–é™Œç”Ÿäººä¿¡æ¯ï¼ŒAuth=131
-* QQIDä¸ºç›®æ ‡QQï¼Œnocacheä¸ºæ˜¯å¦ä¸ä½¿ç”¨ç¼“å­˜
+* È¡Ä°ÉúÈËĞÅÏ¢£¬Auth=131
+* QQIDÎªÄ¿±êQQ£¬nocacheÎªÊÇ·ñ²»Ê¹ÓÃ»º´æ
 */
 CQAPI(const char *) CQ_getStrangerInfo(int32_t AuthCode, int64_t QQID, CQBOOL nocache);
 
 /*
-* æ—¥å¿—
-* priorityä¸ºä¼˜å…ˆçº§ï¼Œcategoryä¸ºç±»å‹ï¼Œcontentä¸ºå†…å®¹
+* ÈÕÖ¾
+* priorityÎªÓÅÏÈ¼¶£¬categoryÎªÀàĞÍ£¬contentÎªÄÚÈİ
 */
 CQAPI(int32_t) CQ_addLog(int32_t AuthCode, int32_t priority, const char *category, const char *content);
 
 /*
-* å–Cookies
-* Auth=20 æ…ç”¨,æ­¤æ¥å£éœ€è¦ä¸¥æ ¼æˆæƒ
+* È¡Cookies
+* Auth=20 É÷ÓÃ,´Ë½Ó¿ÚĞèÒªÑÏ¸ñÊÚÈ¨
 */
 CQAPI(const char *) CQ_getCookies(int32_t AuthCode);
 
 /*
-* å–CsrfToken
-* Auth=20 å³QQç½‘é¡µç”¨åˆ°çš„bkn/g_tkç­‰ æ…ç”¨,æ­¤æ¥å£éœ€è¦ä¸¥æ ¼æˆæƒ
+* È¡CsrfToken
+* Auth=20 ¼´QQÍøÒ³ÓÃµ½µÄbkn/g_tkµÈ É÷ÓÃ,´Ë½Ó¿ÚĞèÒªÑÏ¸ñÊÚÈ¨
 */
 CQAPI(int32_t) CQ_getCsrfToken(int32_t AuthCode);
 
 /*
-* å–ç™»å½•QQå·
+* È¡µÇÂ¼QQºÅ
 */
 CQAPI(int64_t) CQ_getLoginQQ(int32_t AuthCode);
 
 /*
-* å–ç™»å½•QQæ˜µç§°
+* È¡µÇÂ¼QQêÇ³Æ
 */
 CQAPI(const char *) CQ_getLoginNick(int32_t AuthCode);
 
 /*
-* å–åº”ç”¨ç›®å½•ï¼Œè¿”å›çš„è·¯å¾„æœ«å°¾å¸¦"\"
+* È¡Ó¦ÓÃÄ¿Â¼£¬·µ»ØµÄÂ·¾¶Ä©Î²´ø"\"
 */
 CQAPI(const char *) CQ_getAppDirectory(int32_t AuthCode);
 
 /*
-* ç½®è‡´å‘½é”™è¯¯æç¤º
-* errorinfoä¸ºé”™è¯¯ä¿¡æ¯
+* ÖÃÖÂÃü´íÎóÌáÊ¾
+* errorinfoÎª´íÎóĞÅÏ¢
 */
 CQAPI(int32_t) CQ_setFatal(int32_t AuthCode, const char *errorinfo);
 
 /*
-* æ¥æ”¶è¯­éŸ³
-* Auth=30 æ¥æ”¶æ¶ˆæ¯ä¸­çš„è¯­éŸ³(record),è¿”å›ä¿å­˜åœ¨ \data\record\ ç›®å½•ä¸‹çš„æ–‡ä»¶å
-* Filenameä¸ºæ”¶åˆ°æ¶ˆæ¯ä¸­çš„è¯­éŸ³æ–‡ä»¶å(file)
-* RequiredFormatä¸ºåº”ç”¨æ‰€éœ€çš„è¯­éŸ³æ–‡ä»¶æ ¼å¼ï¼Œç›®å‰æ”¯æŒ mp3,amr,wma,m4a,spx,ogg,wav,flac
+* ½ÓÊÕÓïÒô
+* Auth=30 ½ÓÊÕÏûÏ¢ÖĞµÄÓïÒô(record),·µ»Ø±£´æÔÚ \data\record\ Ä¿Â¼ÏÂµÄÎÄ¼şÃû
+* FilenameÎªÊÕµ½ÏûÏ¢ÖĞµÄÓïÒôÎÄ¼şÃû(file)
+* RequiredFormatÎªÓ¦ÓÃËùĞèµÄÓïÒôÎÄ¼ş¸ñÊ½£¬Ä¿Ç°Ö§³Ö mp3,amr,wma,m4a,spx,ogg,wav,flac
 */
 const char * CQ_getRecord(int32_t AuthCode, const char *Filename, const char *RequiredFormat) {
 	const char * returnData;
@@ -217,14 +217,14 @@ const char * CQ_getRecord(int32_t AuthCode, const char *Filename, const char *Re
 		}
 		FreeLibrary(hDllInst);
 	} else {
-		CQ_addLog(AuthCode, CQLOG_ERROR, "ERROR", "DLLè°ƒç”¨å¤±è´¥");
+		CQ_addLog(AuthCode, CQLOG_ERROR, "ERROR", "DLLµ÷ÓÃÊ§°Ü");
 	}
 	return returnData;
 };
 
 /*
-* å‘é€1~10ä¸ªèµï¼ŒAuth=110 å‘é€æ‰‹æœºèµ
-* QQIDä¸ºQQå·
+* ·¢ËÍ1~10¸öÔŞ£¬Auth=110 ·¢ËÍÊÖ»úÔŞ
+* QQIDÎªQQºÅ
 */
 int32_t CQ_sendLikeV2(int32_t AuthCode, int64_t QQID, int32_t times) {
 	int32_t returnData;
@@ -238,7 +238,7 @@ int32_t CQ_sendLikeV2(int32_t AuthCode, int64_t QQID, int32_t times) {
 		}
 		FreeLibrary(hDllInst);
 	} else {
-		CQ_addLog(AuthCode, CQLOG_ERROR, "ERROR", "DLLè°ƒç”¨å¤±è´¥");
+		CQ_addLog(AuthCode, CQLOG_ERROR, "ERROR", "DLLµ÷ÓÃÊ§°Ü");
 	}
 	return returnData;
 }
