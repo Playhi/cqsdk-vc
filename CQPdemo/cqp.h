@@ -63,12 +63,6 @@ CQAPI(int32_t) CQ_sendDiscussMsg(int32_t AuthCode, int64_t discussid, const char
 CQAPI(int32_t) CQ_sendLike(int32_t AuthCode, int64_t QQID);
 
 /*
-* 发送1~10个赞，Auth=110 发送手机赞
-* QQID为QQ号
-*/
-//CQAPI(int32_t) CQ_sendLikeV2(int32_t AuthCode, int64_t QQID, int32_t times);
-
-/*
 * 置群员移除，Auth=120
 * groupid为目标群，QQID为QQ号，rejectaddrequest 如果为真，则“不再接收此人加群申请”，请慎用。留空为假
 */
