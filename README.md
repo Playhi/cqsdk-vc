@@ -1,4 +1,4 @@
-###### [<img src="https://ci.appveyor.com/api/projects/status/uq42svednr948ew2/branch/Playhi">](https://ci.appveyor.com/project/Playhi/cqsdk-vc)
+###### [<img src="https://ci.appveyor.com/api/projects/status/github/playhi/cqsdk-vc?branch=playhi">](https://ci.appveyor.com/project/Playhi/cqsdk-vc)
 # 中文版本
 ## 简介
 * 使用 Visual C++ 编写酷Q应用。
