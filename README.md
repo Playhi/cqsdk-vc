@@ -1,3 +1,4 @@
+###### <img src="https://ci.appveyor.com/api/projects/status/uq42svednr948ew2/branch/Playhi">
 # 中文版本
 ## 简介
 * 使用 Visual C++ 编写酷Q应用。
