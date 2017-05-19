@@ -1,6 +1,6 @@
 /*
 * CoolQ SDK for VC++
-* Based on Api Version 9.6
+* Based on Api Version 9
 * Written by Coxxs & Thanks for the help of orzFly
 * Modified by Playhi
 */
@@ -199,40 +199,16 @@ CQAPI(int32_t) CQ_setFatal(int32_t AuthCode, const char *errorinfo);
 * Filename为收到消息中的语音文件名(file)
 * RequiredFormat为应用所需的语音文件格式，目前支持 mp3,amr,wma,m4a,spx,ogg,wav,flac
 */
-const char * CQ_getRecord(int32_t AuthCode, const char *Filename, const char *RequiredFormat) {
-	const char * returnData;
-	HINSTANCE hDllInst = LoadLibrary("CQP.dll");
-	if (hDllInst) {
-		typedef const char *(WINAPI *FUNC)(int32_t, const char *, const char *);
-		FUNC CQ_getRecord = NULL;
-		CQ_getRecord = (FUNC)GetProcAddress(hDllInst, "CQ_getRecord");
-		if (CQ_getRecord) {
-			returnData = CQ_getRecord(AuthCode, Filename, RequiredFormat);
-		}
-		FreeLibrary(hDllInst);
-	} else {
-		CQ_addLog(AuthCode, CQLOG_ERROR, "ERROR", "DLL调用失败");
-	}
-	return returnData;
-};
+CQAPI(const char *) CQ_getRecord(int32_t AuthCode, const char *Filename, const char *RequiredFormat);
 
 /*
 * 发送1~10个赞，Auth=110 发送手机赞
 * QQID为QQ号
 */
-int32_t CQ_sendLikeV2(int32_t AuthCode, int64_t QQID, int32_t times) {
-	int32_t returnData;
-	HINSTANCE hDllInst = LoadLibrary("CQP.dll");
-	if (hDllInst) {
-		typedef int32_t(WINAPI *FUNC)(int32_t, int64_t, int32_t);
-		FUNC CQ_sendLikeV2 = NULL;
-		CQ_sendLikeV2 = (FUNC)GetProcAddress(hDllInst, "CQ_sendLikeV2");
-		if (CQ_sendLikeV2) {
-			returnData = CQ_sendLikeV2(AuthCode, QQID, times);
-		}
-		FreeLibrary(hDllInst);
-	} else {
-		CQ_addLog(AuthCode, CQLOG_ERROR, "ERROR", "DLL调用失败");
-	}
-	return returnData;
-}
+CQAPI(int32_t) CQ_sendLikeV2(int32_t AuthCode, int64_t QQID, int32_t times);
+
+/*
+*取群成员列表
+*groupid为目标群
+*/
+CQAPI(const char *) CQ_getGroupMemberList(int32_t AuthCode, int64_t groupid);
