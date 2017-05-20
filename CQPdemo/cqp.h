@@ -155,7 +155,7 @@ CQAPI(const char *) CQ_getGroupMemberInfoV2(int32_t AuthCode, int64_t groupid, i
 CQAPI(const char *) CQ_getStrangerInfo(int32_t AuthCode, int64_t QQID, CQBOOL nocache);
 
 /*
-* 日志
+* 日志(不推荐使用本函数，请使用CQ_addLog*函数)
 * priority为优先级，category为类型，content为内容
 */
 CQAPI(int32_t) CQ_addLog(int32_t AuthCode, int32_t priority, const char *category, const char *content);
@@ -212,3 +212,43 @@ CQAPI(int32_t) CQ_sendLikeV2(int32_t AuthCode, int64_t QQID, int32_t times);
 *groupid为目标群
 */
 CQAPI(const char *) CQ_getGroupMemberList(int32_t AuthCode, int64_t groupid);
+
+/*
+* 日志(错误)
+* category为类型，content为内容
+*/
+int32_t CQ_addLogError(int32_t AuthCode, const char *category, const char *content) {
+	return CQ_addLog(AuthCode, CQLOG_ERROR, category, content);
+};
+
+/*
+* 日志(警告)
+* category为类型，content为内容
+*/
+int32_t CQ_addLogWarning(int32_t AuthCode, const char *category, const char *content) {
+	return CQ_addLog(AuthCode, CQLOG_WARNING, category, content);
+};
+
+/*
+* 日志(调试)
+* category为类型，content为内容
+*/
+int32_t CQ_addLogDebug(int32_t AuthCode, const char *category, const char *content) {
+	return CQ_addLog(AuthCode, CQLOG_DEBUG, category, content);
+};
+
+/*
+* 日志(信息)
+* category为类型，content为内容
+*/
+int32_t CQ_addLogInfo(int32_t AuthCode, const char *category, const char *content) {
+	return CQ_addLog(AuthCode, CQLOG_INFO, category, content);
+};
+
+/*
+* 日志(致命错误)
+* category为类型，content为内容
+*/
+int32_t CQ_addLogFatal(int32_t AuthCode, const char *category, const char *content) {
+	return CQ_addLog(AuthCode, CQLOG_FATAL, category, content);
+};
