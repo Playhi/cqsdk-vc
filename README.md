@@ -1,7 +1,10 @@
-###### <a href="https://ci.appveyor.com/project/Playhi/cqsdk-vc" target="_blank"><img src="https://ci.appveyor.com/api/projects/status/github/playhi/cqsdk-vc?branch=playhi"></a>
+[中文](https://github.com/Playhi/cqsdk-vc#中文版本) - [English](https://github.com/Playhi/cqsdk-vc#english)
 # 中文版本
 ## 简介
 * 使用 Visual C++ 编写酷Q应用。
+
+## 状态
+* Appveyor：<a href="https://ci.appveyor.com/project/Playhi/cqsdk-vc" target="_blank"><img src="https://ci.appveyor.com/api/projects/status/github/playhi/cqsdk-vc?branch=playhi"></a>
 
 ## 文件说明
 * `CQPdemo.sln` - 示例项目，可以直接在此基础上编写应用
@@ -29,6 +32,9 @@
 # English
 ## Introduction
 * Use Visual C++ to write CoolQ Apps.
+
+## Status
+* Appveyor：<a href="https://ci.appveyor.com/project/Playhi/cqsdk-vc" target="_blank"><img src="https://ci.appveyor.com/api/projects/status/github/playhi/cqsdk-vc?branch=playhi"></a>
 
 ## Instruction
 * `CQPdemo.sln` - Example Project,you can write apps on this basis.
