@@ -6,6 +6,9 @@
 ## 状态
 * Appveyor：<a href="https://ci.appveyor.com/project/Playhi/cqsdk-vc" target="_blank"><img src="https://ci.appveyor.com/api/projects/status/github/playhi/cqsdk-vc?branch=playhi"></a>
 
+## 开发指引
+* 请访问 [https://d.cqp.me/Pro/开发](https://d.cqp.me/Pro/%E5%BC%80%E5%8F%91)
+
 ## 文件说明
 * `CQPdemo.sln` - 示例项目，可以直接在此基础上编写应用
 
@@ -35,6 +38,9 @@
 
 ## Status
 * Appveyor：<a href="https://ci.appveyor.com/project/Playhi/cqsdk-vc" target="_blank"><img src="https://ci.appveyor.com/api/projects/status/github/playhi/cqsdk-vc?branch=playhi"></a>
+
+## Tutorials
+* Please visit [https://d.cqp.me/Pro/开发](https://d.cqp.me/Pro/%E5%BC%80%E5%8F%91)
 
 ## Instruction
 * `CQPdemo.sln` - Example Project,you can write apps on this basis.
