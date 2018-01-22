@@ -19,14 +19,14 @@
 
 typedef int32_t CQBOOL;
 
-#define EVENT_IGNORE 0        //事件_忽略
-#define EVENT_BLOCK 1         //事件_拦截
+#define EVENT_IGNORE 0          //事件_忽略
+#define EVENT_BLOCK 1           //事件_拦截
 
-#define REQUEST_ALLOW 1       //请求_通过
-#define REQUEST_DENY 2        //请求_拒绝
+#define REQUEST_ALLOW 1         //请求_通过
+#define REQUEST_DENY 2          //请求_拒绝
 
-#define REQUEST_GROUPADD 1    //请求_群添加
-#define REQUEST_GROUPINVITE 2 //请求_群邀请
+#define REQUEST_GROUPADD 1      //请求_群添加
+#define REQUEST_GROUPINVITE 2   //请求_群邀请
 
 #define CQLOG_DEBUG 0           //调试 灰色
 #define CQLOG_INFO 10           //信息 黑色
@@ -39,23 +39,28 @@ typedef int32_t CQBOOL;
 
 
 /*
-* 发送私聊消息，Auth=106
+* 发送私聊消息，Auth=106，成功返回消息ID
 * QQID为目标QQ号，msg为消息内容
 */
 CQAPI(int32_t) CQ_sendPrivateMsg(int32_t AuthCode, int64_t QQID, const char *msg);
 
 /*
-* 发送群消息，Auth=101
+* 发送群消息，Auth=101，成功返回消息ID
 * groupid为群号，msg为消息内容
 */
 CQAPI(int32_t) CQ_sendGroupMsg(int32_t AuthCode, int64_t groupid, const char *msg);
 
 /*
-* 发送讨论组消息，Auth=103
+* 发送讨论组消息，Auth=103，成功返回消息ID
 * discussid为讨论组号，msg为消息内容
 */
 CQAPI(int32_t) CQ_sendDiscussMsg(int32_t AuthCode, int64_t discussid, const char *msg);
 
+/*
+* 撤回消息
+* msgid 消息ID
+*/
+CQAPI(int32_t) CQ_deleteMsg(int32_t AuthCode, int64_t msgid);
 /*
 * 发送1个赞，Auth=110 发送手机赞
 * QQID为QQ号
