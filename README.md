@@ -4,7 +4,7 @@
 * 使用 Visual C++ 编写酷Q应用。
 
 ## 状态
-* Appveyor：<a href="https://ci.appveyor.com/project/Playhi/cqsdk-vc" target="_blank"><img src="https://ci.appveyor.com/api/projects/status/github/playhi/cqsdk-vc?branch=playhi"></a>
+* Appveyor：[![Build status](https://ci.appveyor.com/api/projects/status/36i9xq86rmf6g0r1?svg=true)](https://ci.appveyor.com/project/Playhi/cqsdk-vc)
 
 ## 开发指引
 * 请访问 [https://d.cqp.me/Pro/开发](https://d.cqp.me/Pro/%E5%BC%80%E5%8F%91)
@@ -37,7 +37,7 @@
 * Use Visual C++ to write CoolQ Apps.
 
 ## Status
-* Appveyor：<a href="https://ci.appveyor.com/project/Playhi/cqsdk-vc" target="_blank"><img src="https://ci.appveyor.com/api/projects/status/github/playhi/cqsdk-vc?branch=playhi"></a>
+* Appveyor：[![Build status](https://ci.appveyor.com/api/projects/status/36i9xq86rmf6g0r1?svg=true)](https://ci.appveyor.com/project/Playhi/cqsdk-vc)
 
 ## Tutorials
 * Please visit [https://d.cqp.me/Pro/开发](https://d.cqp.me/Pro/%E5%BC%80%E5%8F%91)
